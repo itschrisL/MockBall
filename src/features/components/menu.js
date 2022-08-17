@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 
 const Menu = () => {
     return (
-        <Nav class="navbar navbar-expand-lg navbar-fixed-top navbar-dark bg-dark w-100 fixed-top">
+        <Nav class="navbar navbar-expand-lg navbar-fixed-top navbar-dark bg-dark w-100">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">Navbar</a>
                 <div class="" id="navbarSupportedContent">

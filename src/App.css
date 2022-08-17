@@ -37,3 +37,25 @@
     transform: translateY(0px);
   }
 }
+
+.Menu {
+  height: 70px;
+  position: fixed;
+  bottom: 0;
+  background: #201D1E;
+  padding: 10px 0;
+  width: 100%;
+}
+
+.Teams {
+  height: 70px;
+  position: fixed;
+  bottom: 0;
+  background: #201D1E;
+  padding: 1000px 0;
+  width: 100%;
+}
+
+/* body { 
+  padding-top: 70px; 
+} */

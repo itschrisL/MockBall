@@ -3,7 +3,10 @@ import styled from 'styled-components';
 
 const GamePage = () => {
     return (
-        <h1>ALL GAMES</h1>
+        <div class="justify-content-center align-items-center">
+            <h1>ALL GAMES</h1>
+        </div>
+        
     );
 }
 

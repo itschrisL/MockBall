@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components';
 
-function MlbData() { 
+
+function GetTeams() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [items, setItems] = useState([]);
+
 
     useEffect(() => {
         const url = "http://lookup-service-prod.mlb.com/json/named.team_all_season.bam?sport_code='mlb'&season='2022'";
@@ -22,17 +23,16 @@ function MlbData() {
         .then(
             (result) => {
                 setIsLoaded(true);
-                const teams = {}
 
-                // console.log(result)
+                const teams = {}
                 
                 for (const [key, val] of Object.entries(result.team_all_season.queryResults.row)) {
                     if (val.mlb_org_abbrev && val.mlb_org_abbrev != "OOC") {
                         teams[val.mlb_org_abbrev] = val
                     }
                 }
-                // console.log(teams)
-                // console.log(Object.keys(teams).length)
+                console.log(teams)
+
                 setItems(teams);
             },
             // Note: it's important to handle errors here
@@ -45,31 +45,30 @@ function MlbData() {
         )
     }, [])
 
+    // Clean up the results
+    const teams = {}
+    console.log("TESTING")
+    console.log(items)
+    console.log("HEREEEEE")
+    // for (const [key, val] of Object.entries(teams.team_all_season.queryResults.row)) {
+    //     if (val.mlb_org_abbrev && val.mlb_org_abbrev != "OOC") {
+    //         teams[val.mlb_org_abbrev] = val
+    //     }
+    // }
+
     if (error) {
-        return <div>Error: {error.message}</div>;
+        return error;
     } 
     else if (!isLoaded) {
-        return <div>Loading...</div>;
+        return isLoaded;
     } 
     else {
-        return (
-            // <table>
-            //     <th>Team Name</th>
-            //     <th>Testing</th>
-            // </table>
-            <ul>
-                <li>
-                    Teams
-                </li>
-                {Object.entries(items).map((key, index) => (
-                    <li>
-                        <p id={key[1].team_id}>{key[1].name_display_long}</p>
-                    </li>
-                ))}
-
-            </ul>
-        )
+        return items;
     }
 }
 
-export default MlbData;
+function name(params) {
+    
+}
+
+export default GetTeams;
