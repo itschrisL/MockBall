@@ -1,10 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import GetGamesDay from '../mlb/get_games';
+import GameCard from '../components/game/game_card';
 
 const GamePage = () => {
+    const games = GetGamesDay();
     return (
         <div class="justify-content-center align-items-center">
-            <h1>ALL GAMES</h1>
+            {Object.entries(games).map((key, index) => (
+                <GameCard home_team={key[1].away_team_full} away_team={key[1].home_team_full} date={key[1].game_time_local} />
+            ))}
         </div>
         
     );

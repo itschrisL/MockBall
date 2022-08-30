@@ -45,17 +45,6 @@ function GetTeams() {
         )
     }, [])
 
-    // Clean up the results
-    const teams = {}
-    console.log("TESTING")
-    console.log(items)
-    console.log("HEREEEEE")
-    // for (const [key, val] of Object.entries(teams.team_all_season.queryResults.row)) {
-    //     if (val.mlb_org_abbrev && val.mlb_org_abbrev != "OOC") {
-    //         teams[val.mlb_org_abbrev] = val
-    //     }
-    // }
-
     if (error) {
         return error;
     } 
@@ -65,10 +54,6 @@ function GetTeams() {
     else {
         return items;
     }
-}
-
-function name(params) {
-    
 }
 
 export default GetTeams;
